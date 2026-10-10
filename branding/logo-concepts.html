@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rose OS Logos</title>
+<style>
+  :root {
+    --page: #12101a; --ink: #e0def4; --sub: #908caa;
+  }
+  .dark  { --bg:#191724; --surface:#1f1d2e; --text:#e0def4; --muted:#6e6a86;
+           --love:#eb6f92; --rose:#ebbcba; --gold:#f6c177; --iris:#c4a7e7; --foam:#9ccfd8; --pine:#31748f; }
+  .light { --bg:#faf4ed; --surface:#fffaf3; --text:#575279; --muted:#9893a5;
+           --love:#b4637a; --rose:#d7827e; --gold:#ea9d34; --iris:#907aa9; --foam:#56949f; --pine:#286983; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--page); color:var(--ink);
+         font-family: "Segoe UI", Inter, system-ui, sans-serif; padding: 32px 16px 64px; }
+  h1 { font-weight:600; margin:0 0 4px; font-size:28px; }
+  p.lead { color:var(--sub); margin:0 0 32px; }
+  .concept { max-width: 1100px; margin: 0 auto 40px; }
+  .concept h2 { font-size:20px; margin:0 0 4px; }
+  .concept h2 span { color: var(--sub); font-weight:400; font-size:15px; margin-left:8px; }
+  .concept .why { color:var(--sub); margin:0 0 14px; font-size:14px; max-width: 760px; }
+  .row { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:16px; }
+  .card { background:var(--bg); color:var(--text); border-radius:16px; padding:28px;
+          display:flex; flex-direction:column; align-items:center; gap:22px; }
+  .hero svg { width:180px; height:180px; display:block; }
+  .lockup { display:flex; align-items:center; gap:14px; }
+  .lockup svg { width:52px; height:52px; }
+  .word { font-size:34px; font-weight:600; letter-spacing:-0.5px; }
+  .word b { font-weight:300; color:var(--muted); margin-left:6px; }
+  .sizes { display:flex; align-items:end; gap:18px; color:var(--muted); font-size:11px; }
+  .sizes div { display:flex; flex-direction:column; align-items:center; gap:6px; }
+</style>
+</head>
+<body>
+<div class="concept" style="margin-bottom:28px">
+  <h1>Rose OS: концепции логотипа</h1>
+  <p class="lead">Палитра Rosé Pine (тёмная) и Rosé Pine Dawn (светлая). Внизу каждой карточки показан логотип в размерах иконки.</p>
+</div>
+<div id="root"></div>
+<script>
+const marks = {
+  rosette: () => {
+    const petals = (n, rx, ry, cy, rot0, cls, op) =>
+      Array.from({length:n}, (_, i) =>
+        `<ellipse cx="0" cy="${cy}" rx="${rx}" ry="${ry}" transform="rotate(${rot0 + i*360/n})" style="fill:var(${cls});opacity:${op}"/>`).join('');
+    return `<svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="0" cy="0" rx="47" ry="14" transform="rotate(-24)" style="fill:none;stroke:var(--foam);stroke-width:2;opacity:.55"/>
+      ${petals(5, 13, 21, -18, 0, '--love', .85)}
+      ${petals(5, 9, 14, -11, 36, '--rose', .9)}
+      ${petals(5, 5, 8, -6, 0, '--iris', .95)}
+      <circle r="4.5" style="fill:var(--gold)"/>
+      <path d="M -42.9 19.1 A 47 14 -24 0 0 42.9 -19.1" style="fill:none;stroke:var(--foam);stroke-width:2.4;stroke-linecap:round" />
+      <circle cx="42.9" cy="-19.1" r="3.8" style="fill:var(--foam)"/>
+    </svg>`;
+  },
+  geometric: () => {
+    let s = '';
+    let size = 70;
+    for (let i = 0; i < 6; i++) {
+      s += `<rect x="${-size/2}" y="${-size/2}" width="${size}" height="${size}" rx="${size*0.22}"
+              transform="rotate(${i*15})" style="fill:none;stroke:url(#g${i%2});stroke-width:3.4"/>`;
+      size *= 0.8;
+    }
+    return `<svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--love)"/><stop offset="1" style="stop-color:var(--iris)"/></linearGradient>
+        <linearGradient id="g1" x1="1" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--rose)"/><stop offset="1" style="stop-color:var(--love)"/></linearGradient>
+      </defs>
+      ${s}
+      <circle r="5" style="fill:var(--gold)"/>
+    </svg>`;
+  },
+  prompt: () => `<svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,8 C-24,2 -26,-26 -12,-40 C-6,-30 6,-30 12,-40 C26,-26 24,2 0,8 Z" style="fill:var(--love)"/>
+      <path d="M0,2 C-12,-4 -13,-22 -2,-32 C2,-24 6,-20 9,-24 C14,-12 10,-2 0,2 Z" style="fill:var(--rose);opacity:.95"/>
+      <path d="M-3,-6 C-8,-12 -6,-20 0,-24 C3,-18 5,-12 -3,-6 Z" style="fill:var(--gold)"/>
+      <path d="M-18,20 L-6,29 L-18,38" style="fill:none;stroke:var(--foam);stroke-width:5;stroke-linecap:round;stroke-linejoin:round"/>
+      <line x1="2" y1="38" x2="20" y2="38" style="stroke:var(--iris);stroke-width:5;stroke-linecap:round"/>
+    </svg>`
+};
+
+const concepts = [
+  { id:'rosette', name:'A. Rosette', tag:'роза-туманность с орбитой',
+    why:'Пятилепестковая роза из полупрозрачных слоёв, как туманность Розетка, и орбита со звездой. Отсылает и к космосу, и к названию. Самый «живой» вариант, хорошо смотрится на экране загрузки и обоях.' },
+  { id:'geometric', name:'B. Spiral', tag:'геометрическая роза из квадратов',
+    why:'Шесть скруглённых квадратов, повёрнутых на 15°, складываются в спираль-розу. Строгий и технологичный вариант, отлично читается даже как иконка 16px и легко анимируется (вращение при загрузке).' },
+  { id:'prompt', name:'C. Bloom', tag:'бутон + приглашение терминала',
+    why:'Бутон розы, а под ним «>_», приглашение терминала. Прямо говорит: красивая система для разработчиков. Самый «смысловой» вариант, но в мелком размере детали могут теряться.' },
+];
+
+const card = (theme, id) => `
+  <div class="card ${theme}">
+    <div class="hero">${marks[id]()}</div>
+    <div class="lockup">${marks[id]()}<div class="word">Rose<b>OS</b></div></div>
+    <div class="sizes">
+      <div>${marks[id]().replace('<svg', '<svg width="64" height="64"')}64</div>
+      <div>${marks[id]().replace('<svg', '<svg width="32" height="32"')}32</div>
+      <div>${marks[id]().replace('<svg', '<svg width="16" height="16"')}16</div>
+    </div>
+  </div>`;
+
+let uid = 0;
+document.getElementById('root').innerHTML = concepts.map(c => `
+  <section class="concept">
+    <h2>${c.name}<span>${c.tag}</span></h2>
+    <p class="why">${c.why}</p>
+    <div class="row">${card('dark', c.id)}${card('light', c.id)}</div>
+  </section>`).join('')
+  // gradient ids must be unique per inline svg
+  .replace(/id="g(\d)"/g, (m, d) => `id="g${d}_${++uid}"`);
+uid = 0; let ref = 0;
+document.querySelectorAll('svg').forEach(svg => {
+  const ids = [...svg.querySelectorAll('linearGradient')].map(g => g.id);
+  if (ids.length) svg.querySelectorAll('rect').forEach(r => {
+    r.style.stroke = r.style.stroke.replace(/#g(\d)/, (m, d) => '#' + ids[+d]);
+  });
+});
+</script>
+</body>
+</html>
