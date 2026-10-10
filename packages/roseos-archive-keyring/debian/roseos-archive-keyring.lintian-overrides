@@ -1,0 +1,2 @@
+# Shipping the Rose OS APT source is the purpose of this package.
+roseos-archive-keyring: package-installs-apt-sources [etc/apt/sources.list.d/roseos.sources]

@@ -1,0 +1,15 @@
+Source: roseos-desktop
+Section: metapackages
+Priority: optional
+Maintainer: enum000 <enum000@users.noreply.github.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/enum000/roseos
+
+Package: roseos-desktop
+Architecture: all
+Depends: ${misc:Depends}, roseos-archive-keyring
+Description: Rose OS desktop metapackage
+ Depends on every package that makes up the Rose OS desktop, so that
+ installing or upgrading this one package brings the whole system in line.
