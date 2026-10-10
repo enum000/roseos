@@ -183,7 +183,7 @@ roseos/
 - Mozilla (Firefox) и Microsoft (VS Code) — со своими ключами в `/usr/share/keyrings/`, Firefox ESR из Debian понижается в приоритете через APT pinning.
 
 ### Наш репозиторий
-- Собирается reprepro, публикуется в `enum000/roseos-repo` через GitHub Pages.
+- Индексы генерирует `apt-ftparchive`, подпись `InRelease`/`Release.gpg` делает `gpg`, после подписи она проверяется `gpgv` против ключа из `roseos-archive-keyring`. Публикуется в `enum000/roseos-repo` (GitHub Pages); CI пушит туда по deploy key с правом записи.
 - Подпись — GPG-ключ «Rose OS Archive Signing Key» (ed25519, срок действия 2 года с продлением). Приватный ключ хранится как секрет GitHub Actions и в офлайн-бэкапе у автора.
 - Версии пакетов: `1.0.0` для первого выпуска, далее семантически (`1.0.1` — исправления, `1.1.0` — новое).
 
