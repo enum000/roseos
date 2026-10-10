@@ -1,2 +1,26 @@
 .claude/
 .superpowers/
+out/
+build/cache/
+build/chroot/
+build/binary/
+build/.build/
+build/local/
+build/*.iso
+build/*.log
+build/*.contents
+build/*.files
+build/*.packages
+build/*.zsync
+build/chroot.*
+build/binary.*
+build/config/binary
+build/config/bootstrap
+build/config/chroot
+build/config/common
+build/config/source
+build/config/packages.chroot/
+# Default hooks that `lb config` symlinks from /usr/share/live/build/hooks
+build/config/hooks/normal/
+build/config/hooks/live/0010-disable-kexec-tools.hook.chroot
+build/config/hooks/live/0050-disable-sysvinit-tmpfs.hook.chroot

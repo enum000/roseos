@@ -1,0 +1,14 @@
+# iso:<path inside the ISO, glob, case-insensitive>
+# fs:<absolute path inside live/filesystem.squashfs>
+iso:EFI/boot/bootx64.efi
+iso:EFI/boot/grubx64.efi
+iso:isolinux/isolinux.bin
+iso:live/filesystem.squashfs
+iso:live/vmlinuz*
+iso:live/initrd.img*
+fs:/usr/bin/sddm
+fs:/usr/bin/startplasma-wayland
+fs:/usr/share/wayland-sessions/plasma.desktop
+fs:/usr/bin/calamares
+fs:/usr/bin/konsole
+fs:/usr/lib/live/config/1190-roseos-sddm-autologin

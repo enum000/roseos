@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+lb config noauto \
+    --distribution trixie \
+    --architecture amd64 \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --linux-flavours amd64 \
+    --binary-images iso-hybrid \
+    --bootloaders "syslinux,grub-efi" \
+    --uefi-secure-boot enable \
+    --debian-installer none \
+    --firmware-chroot true \
+    --security true \
+    --updates true \
+    --memtest none \
+    --iso-application "Rose OS" \
+    --iso-publisher "Rose OS; https://github.com/enum000/roseos" \
+    --iso-volume "ROSEOS_1_0" \
+    --image-name roseos \
+    --bootappend-live "boot=live components quiet splash username=rose hostname=roseos locales=en_US.UTF-8 keyboard-layouts=us,ru keyboard-options=grp:alt_shift_toggle" \
+    "${@}"

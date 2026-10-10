@@ -1,0 +1,9 @@
+#!/bin/sh
+# live-config runs this at boot of the live session only; the file it writes
+# is not part of the squashfs, so Calamares never copies it to the target.
+mkdir -p /etc/sddm.conf.d
+cat > /etc/sddm.conf.d/10-roseos-live-autologin.conf <<'EOF'
+[Autologin]
+User=rose
+Session=plasma
+EOF

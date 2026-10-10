@@ -1,0 +1,10 @@
+sudo
+network-manager
+firmware-linux
+firmware-misc-nonfree
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-sof-signed
+intel-microcode
+amd64-microcode
